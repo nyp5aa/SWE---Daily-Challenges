@@ -49,21 +49,28 @@ class MyGraph extends Component{
     }
     render(){
         return(
-        <VictoryChart domainPadding={5}>
+        <VictoryChart domainPadding={20} theme={VictoryTheme.material}>
             <VictoryAxis
                 // tickValues specifies both the number of ticks and where
                 // they are placed on the axis
                 tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
                 tickFormat={this.state.xAxis}
+                style={{
+                    tickLabels: {fontSize: 4.5, padding: 10}
+                }}
             />
             <VictoryAxis
                 dependentAxis
                 // tickFormat specifies how ticks should be displayed
-                tickFormat={this.state.yAxis}
+                tickValues={[200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000]}
+                tickFormat={[200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000]}
+                style={{
+                    tickLabels: {fontSize: 7, padding: 10}
+                }}
             />
             <VictoryBar
                 data={this.state.graphdata}
-                x="contributors"
+                x="login"
                 y="contributions"
             />
             <div>
@@ -74,12 +81,5 @@ class MyGraph extends Component{
         );
     }
 }
-
-/*const data = [
-    {quarter: 1, earnings: 13000},
-    {quarter: 2, earnings: 16500},
-    {quarter: 3, earnings: 14250},
-    {quarter: 4, earnings: 19000}
-  ];*/
 
 export default MyGraph
