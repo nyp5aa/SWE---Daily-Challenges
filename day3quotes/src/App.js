@@ -12,7 +12,9 @@ let q = ["Our greatest glory is not in never falling, but in rising every time w
 class App extends Component {
   render() {
     return (
-      <Quotes passin={q}/>
+      <div>
+        <Quotes passin={q}/>
+      </div>
     );
   }
 }
