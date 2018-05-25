@@ -37,13 +37,11 @@ class MyGraph extends Component{
             let setThisAsY = [];
             this.state.graphdata.map(o =>{
                 setThisAsX.push(o.login);
-            });
-            this.state.graphdata.map(o =>{
                 setThisAsY.push(o.contributions);
             });
             this.setState({
                 xAxis: setThisAsX,
-                yAxis: setThisAsY
+                yAxis: setThisAsY,
             });
         })
     }
@@ -73,10 +71,6 @@ class MyGraph extends Component{
                 x="login"
                 y="contributions"
             />
-            <div>
-                {console.log(this.state.xAxis)}
-                {console.log(this.state.yAxis)}
-            </div>
         </VictoryChart>
         );
     }
