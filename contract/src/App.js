@@ -46,23 +46,24 @@ class App extends Component {
     document.getElementById("n").value="";
     document.getElementById("c").value="";
     document.getElementById("d").value="";
-  }
-  diverge=(obj)=>{
-    let returnThis = obj.name + "   " + obj.company + "   " + obj.detail;
-    return(
-      returnThis
-    );
+    console.log(this.state.listOfAllContracts);
   }
   render() {
+    let data = this.state.listOfAllContracts.map(cont => {
+      console.log(this.state.listOfAllContracts.length);
+      return(
+      <div>
+        <h4> Contract </h4>
+        <div>{cont.name}</div>
+        <div>{cont.company}</div>
+        <div>{cont.detail}</div>
+      </div>
+    )});
     return (
       <div className="App">
         <MyForm usedToUpdate={this.saveValue}/>
         <button onClick={this.addToList}> SUBMIT </button>
-        <div>
-          {this.state.listOfAllContracts.map(cont => (
-            <div>{this.diverge(cont)}</div>
-          ))}
-        </div>
+        {data}
       </div>
     );
   }
